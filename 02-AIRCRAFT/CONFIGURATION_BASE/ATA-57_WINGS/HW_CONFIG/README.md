@@ -37,14 +37,48 @@ This directory should contain:
 
 ```
 HW_CONFIG/
-├── LRU_[NAME]/            # Individual LRU configurations
+├── LRU_AILERON_ACTUATOR/       # Aileron control actuators
 │   ├── SPECIFICATIONS.pdf
 │   ├── PART_NUMBERS.csv
 │   ├── INSTALLATION.pdf
 │   └── TEST_PROCEDURES.pdf
-├── CONNECTORS/            # Connector definitions
-├── ASSEMBLIES/            # Hardware assemblies
-└── BOM/                   # Bills of materials
+├── LRU_FLAP_DRIVE_UNIT/        # Flap extension/retraction systems
+│   ├── SPECIFICATIONS.pdf
+│   ├── PART_NUMBERS.csv
+│   ├── INSTALLATION.pdf
+│   └── TEST_PROCEDURES.pdf
+├── LRU_SLAT_ACTUATOR/          # Slat control actuators
+│   ├── SPECIFICATIONS.pdf
+│   ├── PART_NUMBERS.csv
+│   ├── INSTALLATION.pdf
+│   └── TEST_PROCEDURES.pdf
+├── LRU_SPOILER_ACTUATOR/       # Spoiler panel actuators
+│   ├── SPECIFICATIONS.pdf
+│   ├── PART_NUMBERS.csv
+│   ├── INSTALLATION.pdf
+│   └── TEST_PROCEDURES.pdf
+├── LRU_WING_TIP_LIGHT/         # Navigation and position lights
+│   ├── SPECIFICATIONS.pdf
+│   ├── PART_NUMBERS.csv
+│   ├── INSTALLATION.pdf
+│   └── TEST_PROCEDURES.pdf
+├── LRU_ICE_DETECTION/          # Ice protection sensors
+│   ├── SPECIFICATIONS.pdf
+│   ├── PART_NUMBERS.csv
+│   ├── INSTALLATION.pdf
+│   └── TEST_PROCEDURES.pdf
+├── CONNECTORS/                  # Wing-specific connector definitions
+│   ├── WING_ROOT_CONNECTORS.pdf
+│   ├── CONTROL_SURFACE_CONNECTORS.pdf
+│   └── SENSOR_CONNECTORS.pdf
+├── ASSEMBLIES/                  # Wing hardware assemblies
+│   ├── FLAP_TRACK_ASSEMBLY.pdf
+│   ├── SLAT_TRACK_ASSEMBLY.pdf
+│   └── WING_TIP_ASSEMBLY.pdf
+└── BOM/                         # Wing bills of materials
+    ├── LEFT_WING_BOM.csv
+    ├── RIGHT_WING_BOM.csv
+    └── WING_CONTROL_SURFACES_BOM.csv
 ```
 
 ## LRU Placement Rules
@@ -54,25 +88,74 @@ Per [Configuration Rules](../../ATA-00_GENERAL/RULES.md):
 - Related hardware stays together with host system
 - Cross-reference other chapters when interfaces exist
 
+## Wing System Architecture
+
+ATA-57 Wings encompasses the following major systems and their associated LRUs:
+
+### Primary Flight Control System (Wings)
+- **Aileron System** - Roll control surfaces and actuation
+  - Outboard aileron actuators (hydraulic/electric)
+  - Inboard aileron actuators (hydraulic/electric)
+  - Aileron position feedback sensors
+- **Spoiler/Speedbrake System** - Lift dump and speed control
+  - Ground spoiler actuators
+  - Flight spoiler actuators
+  - Spoiler position sensors
+
+### High-Lift System
+- **Leading Edge Devices** - Slat system components
+  - Slat drive motors and gearboxes
+  - Slat track assemblies
+  - Slat position sensors (LVDT/RVDT)
+  - Slat asymmetry detection
+- **Trailing Edge Devices** - Flap system components
+  - Flap drive power control units (PCU)
+  - Flap transmission assemblies
+  - Flap position transmitters
+  - Flap load sensors
+
+### Wing Structure & Protection
+- **Ice Protection System** - Anti-icing and de-icing
+  - Leading edge heating elements
+  - Ice detection probes
+  - Anti-ice control valves (if pneumatic)
+- **Structural Monitoring** - Health monitoring systems
+  - Strain gauges
+  - Fatigue monitoring sensors
+  - Wing deflection sensors
+
+### Wing Integration Items
+- **Fuel System Interface** - Wing tank components (see ATA-28)
+- **Landing Gear Interface** - Wing-mounted gear components (see ATA-32)
+- **Powerplant Interface** - Engine pylon attachments (see ATA-71-80)
+- **Electrical Power** - Wing-mounted generators/APU interfaces (see ATA-24)
+
 ## Hardware Categories
 
-### Electronic LRUs
-- Computers and processors
-- Controllers and interfaces
-- Sensors and transducers
-- Power supplies and converters
+### Wing-Specific Electronic LRUs
+- **Wing Control Computers** - Flight control processing units
+- **Slat/Flap Position Sensors** - LVDT/RVDT position transducers
+- **Load Sensors** - Strain gauges and load monitoring systems
+- **Ice Detection Systems** - Ice detection probes and sensors
+- **Angle of Attack Sensors** - AOA vanes and transmitters
+- **Wing Tip Devices Controllers** - Winglet/sharklet control interfaces
 
-### Mechanical LRUs
-- Actuators and servos
-- Valves and pumps
-- Structural components
-- Mechanical assemblies
+### Wing-Specific Mechanical LRUs
+- **Primary Flight Control Actuators** - Aileron, spoiler actuators
+- **High-Lift System Actuators** - Slat and flap drive mechanisms
+- **Flap Track Assemblies** - Flap deployment mechanisms
+- **Slat Track Assemblies** - Slat extension/retraction mechanisms
+- **Wing Tip Fairings** - Aerodynamic wing tip components
+- **Access Panels and Doors** - Inspection and maintenance access
+- **Structural Fittings** - Wing attachment and load transfer components
 
-### Electrical LRUs
-- Circuit breakers and relays
-- Switches and indicators
-- Transformers and inductors
-- Wiring harnesses (reference ATA-92)
+### Wing-Specific Electrical LRUs
+- **Wing Anti-Ice Heaters** - Leading edge ice protection elements
+- **Navigation Lights** - Wing tip position lights
+- **Landing/Taxi Lights** - Wing-mounted illumination systems
+- **Fuel Quantity Probes** - Wing tank fuel level sensors
+- **Lightning Strike Protection** - Static dischargers and bonding
+- **Wiring Harnesses** - Wing-specific harness assemblies (reference ATA-92)
 
 ## Configuration Data Requirements
 
@@ -112,6 +195,38 @@ Hardware must comply with:
 - Vibration and shock requirements
 - EMI/EMC requirements
 - Altitude and pressure requirements
+
+### Wing-Specific Environmental Considerations
+
+**Temperature Extremes**:
+- Leading edge de-ice systems: Operating range -55°C to +85°C
+- Control surface actuators: -55°C to +71°C ambient
+- Wing tip navigation lights: -55°C to +55°C
+
+**Vibration and Shock**:
+- Wing flex and flutter conditions per structural analysis
+- Engine-induced vibration for wing-mounted engines
+- Ground handling loads and impact scenarios
+
+**Altitude and Pressure**:
+- Sealed LRU compartments: Pressure differential considerations
+- Fuel tank components: Ullage pressure variations
+- Control surface seals: Altitude compensation
+
+**Lightning and Static**:
+- Wing tip static dischargers: Lightning strike zones 1A, 2A, 3
+- Composite material bonding requirements
+- Fuel system lightning protection per ATA-28 interface
+
+**Icing Conditions**:
+- Ice accretion on sensors and probes
+- Leading edge ice protection certification
+- De-ice system redundancy requirements
+
+**Contamination**:
+- Hydraulic fluid compatibility for actuators
+- Fuel system vapor exposure for wing tank sensors
+- Corrosion protection for external-mounted hardware
 
 ---
 
