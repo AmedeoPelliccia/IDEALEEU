@@ -24,7 +24,7 @@ def main():
         print()
         
         print("Database Configuration:")
-        print(f"  DB URL: {settings.db_url.split('@')[0]}@***")
+        print(f"  DB URL: {settings.db_url.split('@')[0] + '@***' if '@' in settings.db_url else '***'}")
         print()
         
         print("Object Storage Configuration:")
