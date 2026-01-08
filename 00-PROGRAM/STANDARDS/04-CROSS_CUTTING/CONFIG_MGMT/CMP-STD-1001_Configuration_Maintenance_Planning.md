@@ -130,7 +130,7 @@ Maintain bidirectional traceability:
 Tasks organized per ATA Spec 100 chapters:
 - **ATA 04**: Airworthiness Limitations
 - **ATA 05**: Time Limits and Maintenance Checks
-- **ATA 06-92**: System-specific maintenance tasks
+- **ATA 06 to 92**: System-specific maintenance tasks
 
 #### Check Packages
 - **Daily Check**: Pre-flight walk-around and basic checks
