@@ -10,7 +10,7 @@ from config import get_settings, Settings
 
 # Example: Using FastAPI (if available)
 try:
-    from fastapi import FastAPI, Depends, HTTPException
+    from fastapi import FastAPI, Depends
     
     app = FastAPI(
         title="IDEALEEU API",
