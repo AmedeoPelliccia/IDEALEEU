@@ -65,8 +65,18 @@ All maintenance tasks integrate with:
 
 - **S1000D Issue 5.0**: Data Module coding and publication structure
 - **EASA CS-25 / FAA Part 25.1529**: Instructions for Continued Airworthiness
-- **IDEALE-EU CMP-STD-1001**: Configuration and Maintenance Planning Standard
+- **[IDEALE-EU CMP-STD-1001](../../../../../00-PROGRAM/STANDARDS/04-CROSS_CUTTING/CONFIG_MGMT/CMP-STD-1001_Configuration_Maintenance_Planning.md)**: Configuration and Maintenance Planning Standard
 - **ISO 14001:2015**: Environmental management reference for ESG declaration
+
+### Cross-Reference Strategy
+
+This document implements the traceability requirements defined in CMP-STD-1001 Section 7:
+
+- **Configuration Items ↔ Maintenance Tasks**: Each task references applicable configuration baselines
+- **Tasks ↔ S1000D Data Modules**: XML data modules (ATA_05-01-10/20/30) provide procedural details
+- **Work Orders ↔ AAMMPP**: Integration for automated work order generation and tracking
+- **Tasks ↔ ESG Metrics**: Environmental impact logging per task execution
+- **Standards ↔ Implementation**: All referenced standards hyperlinked to source documentation
 
 ## Integration Points
 
