@@ -1,6 +1,5 @@
 """Tests for configuration module."""
 
-import os
 import pytest
 from config.settings import Settings, Environment, LogLevel, get_settings
 
