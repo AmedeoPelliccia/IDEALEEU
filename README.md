@@ -393,4 +393,125 @@ Apache‑2.0. See [LICENSE](LICENSE).
 
 ---
 
-**Design responsibly. Prove it.**
+**Document Version**: 1.0  
+**Date**: October 24, 2025  
+**Status**: Initial Development Requirements
+
+**TFA Domain Mapping**: This development plan integrates across CQH (Cryogenics-Quantum-H2), PPP (Propulsion), AAA (Airframes-Aerodynamics-Airworthiness), EEE (Electrical-Endocircular-Energization), LCC (Linkages-Control-Communications), and IIF (Industrial-Infrastructure-Facilities).
+
+**Repository References**:
+* Configuration details: `/02-AIRCRAFT/MODEL_IDENTIFICATION/AMPEL360-AIR-T/ARCH/BWB-H2-Hy-E/`
+* Domain systems: `/02-AIRCRAFT/MODEL_IDENTIFICATION/AMPEL360-AIR-T/ARCH/BWB-H2-Hy-E/FAMILY/Q100_STD01/DOMAIN/`
+* UTCS traceability: `/00-PROGRAM/CONFIG_MGMT/10-TRACEABILITY/UTCS/`
+
+---
+
+## Extended materials
+
+### TFA Canonical Domains
+
+| Code | Domain                                 | Focus                                  |
+| ---- | -------------------------------------- | -------------------------------------- |
+| AAA  | Airframes‑Aerodynamics‑Airworthiness   | Structure, aero, certification         |
+| AAP  | Airport‑Adaptable‑Platforms            | Ground ops, GSE                        |
+| CCC  | Cockpit‑Cabin‑Cargo                    | Flight deck, passenger, freight        |
+| CQH  | Cryogenics‑Quantum‑H2                  | H₂ systems, quantum tech               |
+| DDD  | Drainage‑Dehumidification‑Drying       | Moisture control                       |
+| EDI  | Electronics‑Digital‑Instruments        | Avionics, sensors                      |
+| EEE  | Electrical‑Endocircular‑Energization   | Power, energy harvesting               |
+| EER  | Environmental‑Emissions‑Remediation    | Fire, pollution, sustainability        |
+| IIF  | Industrial‑Infrastructure‑Facilities   | Manufacturing, tooling                 |
+| IIS  | Information‑Intelligence‑Systems       | Software, AI, cybersecurity            |
+| LCC  | Linkages‑Control‑Communications        | Flight controls, datalinks             |
+| LIB  | Logistics‑Inventory‑Blockchain         | Supply chain, evidence anchoring       |
+| MMM  | Mechanical‑Material‑Modules            | Materials, mechanical, MRO             |
+| OOO  | Operations‑Optimizations‑Orchestration | Fleet ops, optimization, backends, UIs |
+| PPP  | Propulsion‑Power‑Plants                | Engines, thrust, fuel                  |
+
+### Documentation links
+
+* Digital Passport Dashboard → `/docs/digital-passport/`
+* Quick Start Guide → `/docs/quick-start/`
+* TFA Domains Reference → `/docs/tfa/domains.md`
+* CAx Lifecycle Overview → `/docs/cax-lifecycle/`
+* API Reference → `/docs/api/`
+
+### QPLC: Human‑Governed AI Framework
+
+**Principles**: human sovereignty; safety‑bounded; full traceability; federated ethics learning.
+
+**Key components**
+
+| Component           | Description                  | Location                                                                |
+| ------------------- | ---------------------------- | ----------------------------------------------------------------------- |
+| QPLC Definition     | Framework spec               | `/00-PROGRAM/GOVERNANCE/QPLC_DEFINITION.md`                             |
+| EPE Rules           | Ethical Policy Engine schema | `/00-PROGRAM/GOVERNANCE/MAL-EEM/ETHICAL_POLICIES/EPE-v1.0.yaml`         |
+| Human‑First Policy  | Ethical principles           | `/00-PROGRAM/GOVERNANCE/MAL-EEM/ETHICAL_POLICIES/HUMAN_FIRST_POLICY.md` |
+| Human Review Portal | Interface spec               | `/00-PROGRAM/GOVERNANCE/QPLC_GOVERNANCE/HUMAN_REVIEW_PORTAL.md`         |
+| PLUMA Integration   | Workflow orchestration       | `/00-PROGRAM/GOVERNANCE/QPLC_GOVERNANCE/PLUMA_INTEGRATION.md`           |
+
+**EPE rules (excerpt)**: HUM‑SAFE‑01 Safety > cost/schedule; PRIVACY‑05 Data minimization; TRANS‑06 Explainability; AUTON‑09 Human oversight.
+
+**Compliance refs**: DO‑178C, EU AI Act (high‑risk), ISO/IEC 24027, CS‑25.1309.
+
+### Program folders
+
+* **/00-PROGRAM/** governance, CM, QMS, standards, supply chain
+
+  * **/00-PROGRAM/BUSINESS/AAMMPP/** canonical AAMMPP
+* **/01-FLEET/** ops data hub, MRO, federated learning
+* **/02‑AIRCRAFT/** AIR‑T baselines, domain integration, twin
+* **/03‑SPACECRAFT/** STA baselines, domain integration, AIT/mission
+* **/04‑SATELLITES/** product structures
+* **/05‑TELESCOPES/** payload/domain structures
+* **/06‑PROBES/** deep‑space probes
+* **/07‑DRONES/** UAS/UAM product lines
+* **/08‑LAUNCHERS/** launch vehicles
+* **/09‑STM‑SPACE‑STATION‑MODULES/** station modules/segments
+* **/10‑BUSINESS/** market, partnerships, finance
+
+  * **/10‑BUSINESS/A360‑EXCHANGES‑TT/** commercial layer on AAMMPP
+
+**Core path pattern**
+
+```
+DOMAIN_INTEGRATION/PRODUCTS/<PRODUCT>/MODELS/<MODEL>/VERSION/<Qn>/SYSTEMS/…
+```
+
+Example
+
+```
+/02-AIRCRAFT/DOMAIN_INTEGRATION/PRODUCTS/AMPEL360-AIR-T/
+  MODELS/BWB-H2-Hy-E/VERSION/Q100/
+```
+
+**ESG and Green Performant Tools (GPT)**
+
+```
+/00-PROGRAM/COMPLIANCE/12-ESG_SUSTAINABILITY/
+  ├── 01-ESG_FRAMEWORK/
+  ├── 02-GREEN_PERFORMANT_TOOLS/
+  ├── 03-KEY_INDICATORS/
+  ├── 04-TRANSFORMATION_VALUE/
+  ├── 05-REPORTING/
+  └── 06-CERTIFICATIONS/
+```
+
+**ATA-05 Maintenance Tasks Structure**
+
+```
+02-AIRCRAFT/CONFIGURATION_BASE/ATA-05_TIME_LIMITS_MAINT_CHECKS/01-MAINTENANCE_TASKS/
+├── 05-01-00_MAINTENANCE_TASKS_general.md
+├── ATA_05-01-10_A_Check.xml
+├── ATA_05-01-20_B_Check.xml
+└── ATA_05-01-30_Daily_Check.xml
+```
+
+### Repository Index and Navigation
+
+**Top‑Level**: [/00‑PROGRAM](./00-PROGRAM/) · [/01‑FLEET](./01-FLEET/) · [/02‑AIRCRAFT](./02-AIRCRAFT/) · [/03‑SPACECRAFT](./03-SPACECRAFT/) · [/04‑SATELLITES](./04-SATELLITES/) · [/05‑TELESCOPES](./05-TELESCOPES/) · [/06‑PROBES](./06-PROBES/) · [/07‑DRONES](./07-DRONES/) · [/08‑LAUNCHERS](./08-LAUNCHERS/) · [/09‑STM‑SPACE‑STATION‑MODULES](./09-STM-SPACE-STATION-MODULES/) · [/10‑BUSINESS](./10-BUSINESS/)
+
+**Reference points**: Governance → [`/00-PROGRAM/GOVERNANCE/`](./00-PROGRAM/GOVERNANCE/); Config Mgmt → [`/00-PROGRAM/CONFIG_MGMT/`](./00-PROGRAM/CONFIG_MGMT/); ECR/ECO/CCB → `06-CHANGES/` and `05-CCB/`; Digital Thread (MBSE) → `/00-PROGRAM/DIGITAL_THREAD/04-MBSE/`; Digital Twin → `/00-PROGRAM/DIGITAL_THREAD/05-DIGITAL_TWIN/`; UTCS Registry → `/00-PROGRAM/CONFIG_MGMT/10-TRACEABILITY/UTCS/`.
+
+**Index maintenance**: automated updates with structure changes; manual review quarterly; baseline snapshots at milestones.
+
