@@ -511,7 +511,7 @@ Example
   └── 06-CERTIFICATIONS/
 ```
 
-**ATA-05 Maintenance Tasks Structure**
+### ATA-05 Maintenance Tasks Structure
 
 ```
 02-AIRCRAFT/CONFIGURATION_BASE/ATA-05_TIME_LIMITS_MAINT_CHECKS/01-MAINTENANCE_TASKS/
