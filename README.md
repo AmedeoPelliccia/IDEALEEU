@@ -521,7 +521,7 @@ Example
 └── ATA_05-01-30_Daily_Check.xml
 ```
 
-**ATA-57 HW_CONFIG - Hardware Configuration**
+### ATA-57 HW_CONFIG - Hardware Configuration
 
 Hardware configuration management ensures correct component selection, installation, and traceability throughout the lifecycle. The HW_CONFIG directories contain:
 
@@ -531,9 +531,9 @@ Hardware configuration management ensures correct component selection, installat
 
 **Key principles**:
 * LRUs reside in their primary functional ATA chapter
-* All wiring configurations managed in ATA-92_EWIS per EWIS rules
+* All wiring configurations managed in ATA-92_EWIS
 * Hardware must comply with DO-160 environmental conditions
-* Configuration changes require ECR, impact analysis, and CCB approval
+* Configuration changes require ECR (Engineering Change Request), impact analysis, and CCB (Configuration Control Board) approval
 
 **Structure example**:
 
